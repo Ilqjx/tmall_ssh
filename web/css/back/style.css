@@ -1,0 +1,50 @@
+body {
+	margin-top: 70px;
+}
+
+div.workingArea {
+	margin: 0 40px;
+}
+
+div.workingArea div.listDataTableDiv {
+	min-height: 220px;
+}
+
+div.workingArea div.pageDiv {
+	text-align: center;
+}
+
+div.workingArea div.addDiv {
+	width: 400px;
+	margin: 0 auto;
+}
+
+div.workingArea div.addDiv table.addTable {
+	width: 100%;
+}
+
+div.workingArea div.addDiv table.addTable td {
+	padding: 5px;
+}
+
+div.workingArea div.editDiv {
+	width: 400px;
+	margin: 0 auto;
+}
+
+div.workingArea div.editDiv table.editTable {
+	width: 100%;
+}
+
+div.workingArea div.editDiv table.editTable td {
+	padding: 5px;
+}
+
+div.footerDiv {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	text-align: center;
+	margin: 20px 0;
+	color: #686868;
+}

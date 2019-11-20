@@ -20,11 +20,6 @@ public class TestTmall {
 	
 	@Test
 	public void testList() {
-		List<Category> cs = categoryService.list();
-		for (Category c : cs) {
-			System.out.println("cid: " + c.getId());
-			System.out.println("cname: " + c.getName());
-		}
 	}
 	
 }

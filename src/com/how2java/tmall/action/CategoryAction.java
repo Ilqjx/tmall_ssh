@@ -50,12 +50,13 @@ public class CategoryAction {
 
 	@Action("admin_category_add")
 	public String add() {
-		categoryService.add(category);
+		categoryService.save(category);
+		// ServletActionContext 获取 ServletAction 上下文
+		// getServletContext() 获取 Servlet 上下文
+		// getRealPath() 获取 "img/category" 的绝对路径
 		File imageFolder = new File(ServletActionContext.getServletContext().getRealPath("img/category"));
 		File image = new File(imageFolder, category.getId() + ".jpg");
-		if (!image.getParentFile().exists()) {
-			image.mkdirs();
-		}
+		image.getParentFile().mkdirs();
 		try {
 			FileUtils.copyFile(img, image);
 			BufferedImage bufferedImage = ImageUtil.chang2jpg(image);
@@ -77,7 +78,7 @@ public class CategoryAction {
 	
 	@Action("admin_category_edit")
 	public String edit() {
-		category = categoryService.getCategory(category);
+		category = (Category) categoryService.get(category.getId());
 		return "editCategoryJsp";
 	}
 	

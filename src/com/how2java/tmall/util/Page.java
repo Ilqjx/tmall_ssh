@@ -14,11 +14,8 @@ public class Page {
 	}
 	
 	public Page(int start, int count) {
-		System.out.println("page int2: count " + count);
-		count = defaultCount;
 		this.start = start;
 		this.count = count;
-		System.out.println("page int2: count222 " + count);
 	}
 	
 	public int getStart() {

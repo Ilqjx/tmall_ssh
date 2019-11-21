@@ -4,18 +4,13 @@ import java.util.List;
 
 import org.hibernate.criterion.DetachedCriteria;
 import org.hibernate.criterion.Order;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.how2java.tmall.dao.impl.DAOImpl;
 import com.how2java.tmall.service.BaseService;
 import com.how2java.tmall.util.Page;
 
 @Service
-public class BaseServiceImpl implements BaseService {
-	
-	@Autowired
-	private DAOImpl dao;
+public class BaseServiceImpl extends ServiceDelegateDAO implements BaseService {
 	
 	protected Class clazz;
 	
@@ -43,47 +38,37 @@ public class BaseServiceImpl implements BaseService {
 
 	@Override
 	public Integer save(Object object) {
-		return (Integer) dao.save(object);
-	}
-
-	@Override
-	public void update(Object object) {
-		dao.update(object);
-	}
-
-	@Override
-	public void delete(Object object) {
-		dao.delete(object);
+		return (Integer) super.save(object);
 	}
 
 	@Override
 	public Object get(Class clazz, int id) {
-		return dao.get(clazz, id);
+		return super.get(clazz, id);
 	}
 
 	@Override
 	public Object get(int id) {
-		return dao.get(clazz, id);
+		return get(clazz, id);
 	}
 
 	@Override
-	public List<Object> list() {
+	public List list() {
 		DetachedCriteria dc = DetachedCriteria.forClass(clazz);
 		dc.addOrder(Order.desc("id"));
-		return dao.findByCriteria(dc);
+		return findByCriteria(dc);
 	}
 
 	@Override
-	public List<Object> list(Page page) {
+	public List list(Page page) {
 		DetachedCriteria dc = DetachedCriteria.forClass(clazz);
 		dc.addOrder(Order.desc("id"));
-		return dao.findByCriteria(dc, page.getStart(), page.getCount());
+		return findByCriteria(dc, page.getStart(), page.getCount());
 	}
 
 	@Override
 	public int getTotal() {
 		String hql = "select count(*) from " + clazz.getName();
-		List<Long> list = dao.find(hql);
+		List<Long> list = find(hql);
 		if (list.isEmpty()) {
 			return 0;
 		}

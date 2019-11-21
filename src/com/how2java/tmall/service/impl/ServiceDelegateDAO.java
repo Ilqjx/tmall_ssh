@@ -24,7 +24,7 @@ import com.how2java.tmall.dao.impl.DAOImpl;
 public class ServiceDelegateDAO {
 
 	@Autowired
-	private DAOImpl dao;
+	protected DAOImpl dao;
 
 	public void afterPropertiesSet() {
 		dao.afterPropertiesSet();

@@ -1,9 +1,11 @@
 package com.how2java.tmall.service.impl;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 
 import org.hibernate.criterion.DetachedCriteria;
 import org.hibernate.criterion.Order;
+import org.hibernate.criterion.Restrictions;
 
 import com.how2java.tmall.service.BaseService;
 import com.how2java.tmall.util.Page;
@@ -66,6 +68,30 @@ public class BaseServiceImpl extends ServiceDelegateDAO implements BaseService {
 		DetachedCriteria dc = DetachedCriteria.forClass(clazz);
 		dc.addOrder(Order.desc("id"));
 		return findByCriteria(dc, page.getStart(), page.getCount());
+	}
+
+	@Override
+	public List listByParent(Object object) {
+		Class parentClass = object.getClass();
+		int id = (int) parentClass.getMethod("getId").invoke(object);
+		String parentSimpleName = parentClass.getSimpleName();
+		char firstChar = parentSimpleName.charAt(0);
+		String foreignKey = String.valueOf(firstChar).toLowerCase();
+		DetachedCriteria dc = DetachedCriteria.forClass(clazz);
+		dc.add(Restrictions.eq(, object));
+		return findByCriteria(dc);
+	}
+
+	@Override
+	public List listByParent(Object object, Page page) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public int getTotalByParent(Object object) {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 
 }

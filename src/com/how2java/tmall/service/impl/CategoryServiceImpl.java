@@ -6,9 +6,5 @@ import com.how2java.tmall.service.CategoryService;
 
 @Service
 public class CategoryServiceImpl extends BaseServiceImpl implements CategoryService {
-	
-	public static void main(String[] args) {
-		new BaseServiceImpl();
-	}
 
 }

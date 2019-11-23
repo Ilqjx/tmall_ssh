@@ -13,6 +13,8 @@ public interface BaseService {
 	
 	public void update(Object object);
 	
+	public int getTotal();
+	
 	public Object get(Class clazz, int id);
 	
 	public Object get(int id);

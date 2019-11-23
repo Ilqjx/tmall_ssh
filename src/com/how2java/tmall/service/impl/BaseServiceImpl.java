@@ -35,6 +35,16 @@ public class BaseServiceImpl extends ServiceDelegateDAO implements BaseService {
 	}
 	
 	@Override
+	public int getTotal() {
+		String hql = "select count(*) from " + clazz.getSimpleName();
+		List<Long> list = find(hql);
+		if (list.isEmpty()) {
+			return 0;
+		}
+		return list.get(0).intValue();
+	}
+	
+	@Override
 	public Object get(Class clazz, int id) {
 		return super.get(clazz, id);
 	}

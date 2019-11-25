@@ -50,7 +50,7 @@
 						</td>
 						<td>${c.name}</td>
 						<td>
-							<a href="admin_property_list">
+							<a href="admin_property_list?category.id=${c.id}">
 								<span class="glyphicon glyphicon-th-list"></span>
 							</a>
 						</td>

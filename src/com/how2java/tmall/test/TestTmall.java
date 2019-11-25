@@ -2,6 +2,7 @@ package com.how2java.tmall.test;
 
 import java.util.List;
 
+import org.hibernate.sql.Sybase11JoinFragment;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +13,7 @@ import com.how2java.tmall.pojo.Category;
 import com.how2java.tmall.pojo.Product;
 import com.how2java.tmall.service.CategoryService;
 import com.how2java.tmall.service.ProductService;
+import com.how2java.tmall.util.Page;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("classpath:applicationContext.xml")
@@ -24,13 +26,11 @@ public class TestTmall {
 	
 	@Test
 	public void testListByParent() {
-		if (categoryService == null) {
-			System.out.println("null categoryService");
-			return;
-		}
-		System.out.println("test");
+		Page page = new Page(0, 7);
 		Category category = new Category();
 		category.setId(144);
+//		int total = productService.getTotalByParent(category);
+//		System.out.println(total);
 		List<Product> list = productService.listByParent(category);
 		if (list != null) {
 			for (Product p : list) {
@@ -40,24 +40,3 @@ public class TestTmall {
 	}
 	
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -23,10 +23,10 @@ public interface BaseService {
 	
 	public List list(Page page);
 	
-	public List listByParent(Object object);
+	public List listByParent(Object parent);
 	
-	public List listByParent(Object object, Page page);
+	public List listByParent(Object parent, Page page);
 	
-	public int getTotalByParent(Object object);
+	public int getTotalByParent(Object parent);
 	
 }

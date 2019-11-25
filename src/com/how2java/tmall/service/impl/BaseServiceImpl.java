@@ -1,8 +1,8 @@
 package com.how2java.tmall.service.impl;
 
-import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 
+import org.apache.commons.lang.xwork.StringUtils;
 import org.hibernate.criterion.DetachedCriteria;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
@@ -71,27 +71,40 @@ public class BaseServiceImpl extends ServiceDelegateDAO implements BaseService {
 	}
 
 	@Override
-	public List listByParent(Object object) {
-		Class parentClass = object.getClass();
-		int id = (int) parentClass.getMethod("getId").invoke(object);
-		String parentSimpleName = parentClass.getSimpleName();
-		char firstChar = parentSimpleName.charAt(0);
-		String foreignKey = String.valueOf(firstChar).toLowerCase();
+	public List listByParent(Object parent) {
+		String parentName = parent.getClass().getSimpleName();
+		// 把首字母变成小写
+		String parentNameWithLetterFirstLower = StringUtils.uncapitalize(parentName);
 		DetachedCriteria dc = DetachedCriteria.forClass(clazz);
-		dc.add(Restrictions.eq(, object));
+		// Restrictions.eq(属性名, 对象, 匹配方式)
+		// 属性名 = 对象
+		dc.add(Restrictions.eq(parentNameWithLetterFirstLower, parent));
+		dc.addOrder(Order.desc("id"));
 		return findByCriteria(dc);
 	}
 
 	@Override
-	public List listByParent(Object object, Page page) {
-		// TODO Auto-generated method stub
-		return null;
+	public List listByParent(Object parent, Page page) {
+		String parentName = parent.getClass().getSimpleName();
+		String parentNameWithLetterFirstLower = StringUtils.uncapitalize(parentName);
+		DetachedCriteria dc = DetachedCriteria.forClass(clazz);
+		dc.add(Restrictions.eq(parentNameWithLetterFirstLower, parent));
+		dc.addOrder(Order.desc("id"));
+		return findByCriteria(dc, page.getStart(), page.getCount());
 	}
 
 	@Override
-	public int getTotalByParent(Object object) {
-		// TODO Auto-generated method stub
-		return 0;
+	public int getTotalByParent(Object parent) {
+		String parentName = parent.getClass().getSimpleName();
+		String parentNameWithFirstLetterLower = StringUtils.uncapitalize(parentName);
+		
+		String hqlFormat = "select count(*) from %s pojo where pojo.%s = ?";
+		String hql = String.format(hqlFormat, clazz.getSimpleName(), parentNameWithFirstLetterLower);
+		List<Long> list = find(hql, parent);
+		if (list.isEmpty()) {
+			return 0;
+		}
+		return list.get(0).intValue();
 	}
 
 }

@@ -21,7 +21,11 @@ import org.apache.struts2.convention.annotation.Results;
 	// 产品管理
 	@Result(name = "listProduct", location = "/admin/listProduct.jsp"),
 	@Result(name = "editProduct", location = "/admin/editProduct.jsp"),
-	@Result(name = "listProductPage", location = "admin_product_list?category.id=${product.category.id}", type = "redirect")
+	@Result(name = "listProductPage", location = "admin_product_list?category.id=${product.category.id}", type = "redirect"),
+	
+	// 产品图片管理
+	@Result(name = "listProductImage", location = "/admin/listProductImage.jsp"),
+	@Result(name = "listProductImagePage", location = "admin_productImage_list?product.id=${productImage.product.id}", type = "redirect")
 })
 public class Action4Result extends Action4Service {
 

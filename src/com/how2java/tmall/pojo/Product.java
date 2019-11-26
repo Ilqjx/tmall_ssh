@@ -10,11 +10,12 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 @Entity
 @Table(name = "product")
 public class Product {
-
+	
 	@Id
 	@Column(name = "id")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -28,6 +29,8 @@ public class Product {
 	@JoinColumn(name = "cid", referencedColumnName="id")
 	private Category category;
 	private Date createDate;
+	@Transient
+	private ProductImage firstProductImage;
 	
 	public int getId() {
 		return id;
@@ -91,6 +94,14 @@ public class Product {
 	
 	public void setCreateDate(Date createDate) {
 		this.createDate = createDate;
+	}
+	
+	public ProductImage getFirstProductImage() {
+		return firstProductImage;
+	}
+	
+	public void setFirstProductImage(ProductImage firstProductImage) {
+		this.firstProductImage = firstProductImage;
 	}
 	
 }

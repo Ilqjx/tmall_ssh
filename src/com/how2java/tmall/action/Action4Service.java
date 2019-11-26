@@ -3,6 +3,7 @@ package com.how2java.tmall.action;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.how2java.tmall.service.CategoryService;
+import com.how2java.tmall.service.ProductImageService;
 import com.how2java.tmall.service.ProductService;
 import com.how2java.tmall.service.PropertyService;
 
@@ -14,6 +15,8 @@ public class Action4Service extends Action4Pojo {
 	protected PropertyService propertyService;
 	@Autowired
 	protected ProductService productService;
+	@Autowired
+	protected ProductImageService productImageService;
 	
 	/**
 	 * transient to persistent

@@ -58,9 +58,9 @@
 					<tr>
 						<td>${p.id}</td>
 						<td>
-<%-- 							<c:if test="${!empty p.firstProductImage}"> --%>
-<%-- 								<img width="40px" src="img/productSingle/${p.firstProductImage.id}.jpg"> --%>
-<%-- 							</c:if> --%>
+							<c:if test="${!empty p.firstProductImage}">
+								<img width="40px" src="img/productSingleImage/${p.firstProductImage.id}.jpg">
+							</c:if>
 						</td>
 						<td>${p.name}</td>
 						<td>${p.subTitle}</td>
@@ -68,7 +68,7 @@
 						<td>${p.promotePrice}</td>
 						<td>${p.stock}</td>
 						<td>
-							<a href="admin_productImage_list?pid=${p.id}">
+							<a href="admin_productImage_list?product.id=${p.id}">
 								<span class="glyphicon glyphicon-picture"></span>
 							</a>
 						</td>

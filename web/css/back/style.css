@@ -19,11 +19,11 @@ div.workingArea div.addDiv {
 	margin: 0 auto;
 }
 
-div.workingArea div.addDiv table.addTable {
+div.workingArea table.addTable {
 	width: 100%;
 }
 
-div.workingArea div.addDiv table.addTable td {
+div.workingArea table.addTable td {
 	padding: 5px;
 }
 
@@ -38,6 +38,16 @@ div.workingArea div.editDiv table.editTable {
 
 div.workingArea div.editDiv table.editTable td {
 	padding: 5px;
+}
+
+div.workingArea table.addPictureTable td.addPictureTableTD {
+	padding: 10px 100px;
+	text-align: center;
+	vertical-align: top;
+}
+
+div.workingArea table.addPictureTable td.addPictureTableTD div.addPictureDiv {
+	width: 400px;
 }
 
 div.footerDiv {

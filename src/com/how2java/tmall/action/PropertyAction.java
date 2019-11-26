@@ -27,7 +27,7 @@ public class PropertyAction extends Action4Result {
 	
 	@Action("admin_property_delete")
 	public String delete() {
-		// t2p(property); 第二种获取 category.id 的方法
+		t2p(property);
 		propertyService.delete(property);
 		return "listPropertyPage";
 	}

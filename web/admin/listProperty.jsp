@@ -47,7 +47,7 @@
 							</a>
 						</td>
 						<td>
-							<a deleteLink="true" href="admin_property_delete?property.id=${p.id}&property.category.id=${category.id}">
+							<a deleteLink="true" href="admin_property_delete?property.id=${p.id}">
 								<span class="glyphicon glyphicon-trash"></span>
 							</a>
 						</td>

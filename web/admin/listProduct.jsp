@@ -11,6 +11,9 @@
 			if (!checkEmpty("name", "产品名称")) {
 				return false;
 			}
+			if (!checkEmpty("subTitle", "产品小标题")) {
+				return false;
+			}
 			if (!checkNumber("originalPrice", "原价格")) {
 				return false;
 			}
@@ -80,7 +83,7 @@
 							</a>
 						</td>
 						<td>
-							<a deleteLink="true" href="admin_product_delete?product.id=${p.id}&product.category.id=${category.id}">
+							<a deleteLink="true" href="admin_product_delete?product.id=${p.id}">
 								<span class="glyphicon glyphicon-trash"></span>
 							</a>
 						</td>

@@ -13,6 +13,9 @@
 			if (!checkEmpty("name", "产品名称")) {
 				return false;
 			}
+			if (!checkEmpty("subTitle", "产品小标题")) {
+				return false;
+			}
 			if (!checkNumber("originalPrice", "原价格")) {
 				return false;
 			}

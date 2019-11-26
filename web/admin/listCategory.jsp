@@ -55,7 +55,7 @@
 							</a>
 						</td>
 						<td>
-							<a href="admin_product_list">
+							<a href="admin_product_list?category.id=${c.id}">
 								<span class="glyphicon glyphicon-shopping-cart"></span>
 							</a>
 						</td>

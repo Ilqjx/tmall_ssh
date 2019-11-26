@@ -22,12 +22,8 @@
 
 <div class="workingArea">
 	<ol class="breadcrumb">
-		<li>
-			<a href="admin_category_list">所有分类</a>
-		</li>
-		<li>
-			<a href="admin_property_list?category.id=${category.id}">${category.name}</a>
-		</li>
+		<li><a href="admin_category_list">所有分类</a></li>
+		<li><a href="admin_property_list?category.id=${category.id}">${category.name}</a></li>
 		<li class="active">属性管理</li>
 	</ol>
 	<div class="listDataTableDiv">

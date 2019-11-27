@@ -1,6 +1,8 @@
 package com.how2java.tmall.service.impl;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.commons.lang.xwork.StringUtils;
 import org.hibernate.criterion.DetachedCriteria;
@@ -105,6 +107,30 @@ public class BaseServiceImpl extends ServiceDelegateDAO implements BaseService {
 			return 0;
 		}
 		return list.get(0).intValue();
+	}
+
+	@Override
+	public List list(Object... pairParams) {
+		Map<String, Object> map = new HashMap<>();
+		for (int i = 0; i < pairParams.length; i += 2) {
+			String key = pairParams[i].toString();
+			Object value = null;
+			if (i + 1 < pairParams.length) {
+				value = pairParams[i+1];
+			}
+			map.put(key, value);
+		}
+		DetachedCriteria dc = DetachedCriteria.forClass(clazz);
+		for (String key : map.keySet()) {
+			if (map.get(key) == null) {
+				// ? ? ?
+				dc.add(Restrictions.isNull(key));
+			} else {
+				dc.add(Restrictions.eq(key, map.get(key)));
+			}
+		}
+		dc.addOrder(Order.desc("id"));
+		return findByCriteria(dc);
 	}
 
 }

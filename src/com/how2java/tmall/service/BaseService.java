@@ -28,5 +28,8 @@ public interface BaseService {
 	public List listByParent(Object parent, Page page);
 	
 	public int getTotalByParent(Object parent);
+
+	// 多条件查询 参数的个数必须是偶数
+	public List list(Object ...pairParams);
 	
 }

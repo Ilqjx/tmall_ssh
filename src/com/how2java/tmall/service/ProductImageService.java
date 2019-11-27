@@ -12,4 +12,6 @@ public interface ProductImageService extends BaseService {
 
 	public List<ProductImage> listByProduct(Product product, String type);
 	
+	public List<ProductImage> listByProduct(String product_key, Product product, String type_key, String type);
+	
 }

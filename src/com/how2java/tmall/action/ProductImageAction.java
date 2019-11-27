@@ -17,11 +17,12 @@ public class ProductImageAction extends Action4Result {
 	@Action("admin_productImage_add")
 	public String add() {
 		productImageService.save(productImage);
-		if (productImage.getType().equals(ProductImageService.single_type)) {
+		if (ProductImageService.single_type.equals(productImage.getType())) {
 			uploadImg(productImage, "img/productSingleImage");
 		} else {
 			uploadImg(productImage, "img/productDetailImage");
 		}
+		resizeImg(productImage);
 		return "listProductImagePage";
 	}
 	

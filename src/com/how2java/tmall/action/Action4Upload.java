@@ -57,6 +57,36 @@ public class Action4Upload {
 		}
 	}
 	
+	/**
+	 * resizeImg
+	 * 改变图片大小
+	 * @param object 图片所对用的对象(productImage)
+	 */
+	public void resizeImg(Object object) {
+		try {
+			Class clazz = object.getClass();
+			int id = (int) clazz.getMethod("getId").invoke(object);
+			String imageName = id + ".jpg";
+			
+			File imageFolder = new File(ServletActionContext.getServletContext().getRealPath("img/productSingleImage"));
+			File image = new File(imageFolder, imageName);
+			
+			File imageFolder_small = new File(ServletActionContext.getServletContext().getRealPath("img/productSingleImage_small"));
+			File imageFolder_middle = new File(ServletActionContext.getServletContext().getRealPath("img/productSingleImage_middle"));
+			
+			File image_small = new File(imageFolder_small, imageName);
+			File image_middle = new File(imageFolder_middle, imageName);
+			
+			image_small.getParentFile().mkdirs();
+			image_middle.getParentFile().mkdirs();
+			
+			ImageUtil.resizeImage(image, 56, 56, image_small);
+			ImageUtil.resizeImage(image, 217, 190, image_middle);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
 	public File getImg() {
 		return img;
 	}

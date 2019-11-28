@@ -7,6 +7,8 @@ public class PropertyValueAction extends Action4Result {
 	@Action("admin_propertyValue_edit")
 	public String edit() {
 		t2p(product);
+		// ≥ı ºªØ
+		propertyValueService.init(product);
 		propertyValues = propertyValueService.listByParent(product);
 		return "editPropertyValue";
 	}

@@ -6,6 +6,7 @@ import com.how2java.tmall.pojo.Category;
 import com.how2java.tmall.pojo.Product;
 import com.how2java.tmall.pojo.ProductImage;
 import com.how2java.tmall.pojo.Property;
+import com.how2java.tmall.pojo.PropertyValue;
 
 public class Action4Pojo extends Action4Pagination {
 
@@ -13,12 +14,14 @@ public class Action4Pojo extends Action4Pagination {
 	protected Property property;
 	protected Product product;
 	protected ProductImage productImage;
+	protected PropertyValue propertyValue;
 	
 	protected List<Category> categorys;
 	protected List<Property> propertys;
 	protected List<Product> products;
 	protected List<ProductImage> productSingleImages;
 	protected List<ProductImage> productDetailImages;
+	protected List<PropertyValue> propertyValues;
 	
 	public Category getCategory() {
 		return category;
@@ -50,6 +53,14 @@ public class Action4Pojo extends Action4Pagination {
 	
 	public void setProductImage(ProductImage productImage) {
 		this.productImage = productImage;
+	}
+	
+	public PropertyValue getPropertyValue() {
+		return propertyValue;
+	}
+	
+	public void setPropertyValue(PropertyValue propertyValue) {
+		this.propertyValue = propertyValue;
 	}
 	
 	public List<Category> getCategorys() {
@@ -90,6 +101,14 @@ public class Action4Pojo extends Action4Pagination {
 	
 	public void setProductDetailImages(List<ProductImage> productDetailImages) {
 		this.productDetailImages = productDetailImages;
+	}
+	
+	public List<PropertyValue> getPropertyValues() {
+		return propertyValues;
+	}
+	
+	public void setPropertyValues(List<PropertyValue> propertyValues) {
+		this.propertyValues = propertyValues;
 	}
 	
 }

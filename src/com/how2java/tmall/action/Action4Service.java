@@ -6,6 +6,7 @@ import com.how2java.tmall.service.CategoryService;
 import com.how2java.tmall.service.ProductImageService;
 import com.how2java.tmall.service.ProductService;
 import com.how2java.tmall.service.PropertyService;
+import com.how2java.tmall.service.PropertyValueService;
 
 public class Action4Service extends Action4Pojo {
 
@@ -17,6 +18,8 @@ public class Action4Service extends Action4Pojo {
 	protected ProductService productService;
 	@Autowired
 	protected ProductImageService productImageService;
+	@Autowired
+	protected PropertyValueService propertyValueService;
 	
 	/**
 	 * transient to persistent

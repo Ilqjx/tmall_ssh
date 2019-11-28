@@ -8,6 +8,9 @@ import org.apache.struts2.convention.annotation.Results;
 @Namespace("/")
 @ParentPackage("basicstruts")
 @Results({
+	// 全局的
+	@Result(name = "success.jsp", location = "/publicJsp/success.jsp"),
+	
 	// 分类管理
 	@Result(name = "listCategory", location = "/admin/listCategory.jsp"),
 	@Result(name = "editCategory", location = "/admin/editCategory.jsp"),
@@ -25,7 +28,10 @@ import org.apache.struts2.convention.annotation.Results;
 	
 	// 产品图片管理
 	@Result(name = "listProductImage", location = "/admin/listProductImage.jsp"),
-	@Result(name = "listProductImagePage", location = "admin_productImage_list?product.id=${productImage.product.id}", type = "redirect")
+	@Result(name = "listProductImagePage", location = "admin_productImage_list?product.id=${productImage.product.id}", type = "redirect"),
+	
+	// 属性值管理
+	@Result(name = "editPropertyValue", location = "/admin/editPropertyValue.jsp")
 })
 public class Action4Result extends Action4Service {
 

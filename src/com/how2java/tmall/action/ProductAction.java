@@ -19,7 +19,7 @@ public class ProductAction extends Action4Result {
 		page.setTotal(total);
 		page.setParam("&category.id=" + category.getId());
 		products = productService.listByParent(category, page);
-		productService.setFirstProductImage(products);
+		productImageService.setFirstProductImage(products);
 		return "listProduct";
 	}
 	

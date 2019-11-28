@@ -9,8 +9,8 @@ public class ProductImageAction extends Action4Result {
 	@Action("admin_productImage_list")
 	public String list() {
 		t2p(product);
-		productSingleImages = productImageService.listByProduct(product, ProductImageService.single_type);
-		productDetailImages = productImageService.listByProduct(product, ProductImageService.detail_type);
+		productSingleImages = productImageService.list("product", product, "type", ProductImageService.single_type);
+		productDetailImages = productImageService.list("product", product, "type", ProductImageService.detail_type);
 		return "listProductImage";
 	}
 	
@@ -18,11 +18,10 @@ public class ProductImageAction extends Action4Result {
 	public String add() {
 		productImageService.save(productImage);
 		if (ProductImageService.single_type.equals(productImage.getType())) {
-			uploadImg(productImage, "img/productSingleImage");
+			uploadAndResizeImg(productImage, "img/productSingleImage");
 		} else {
 			uploadImg(productImage, "img/productDetailImage");
 		}
-		resizeImg(productImage);
 		return "listProductImagePage";
 	}
 	

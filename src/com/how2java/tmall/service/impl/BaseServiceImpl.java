@@ -115,6 +115,9 @@ public class BaseServiceImpl extends ServiceDelegateDAO implements BaseService {
 		for (int i = 0; i < pairParams.length; i += 2) {
 			String key = pairParams[i].toString();
 			Object value = null;
+			// 当 i 是最后一个数的时候
+			// 如果是偶数 i+1 < pairParams.length
+			// 如果是奇数 i+1 = pairParams.length
 			if (i + 1 < pairParams.length) {
 				value = pairParams[i+1];
 			}
@@ -123,7 +126,7 @@ public class BaseServiceImpl extends ServiceDelegateDAO implements BaseService {
 		DetachedCriteria dc = DetachedCriteria.forClass(clazz);
 		for (String key : map.keySet()) {
 			if (map.get(key) == null) {
-				// ? ? ?
+				// 查询 key 为空的信息
 				dc.add(Restrictions.isNull(key));
 			} else {
 				dc.add(Restrictions.eq(key, map.get(key)));

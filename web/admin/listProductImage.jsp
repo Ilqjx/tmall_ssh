@@ -144,5 +144,3 @@
 		</tr>
 	</table>
 </div>
-
-<%@ include file="../include/admin/adminFooter.jsp" %>

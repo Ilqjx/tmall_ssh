@@ -18,7 +18,7 @@ public class ProductImageAction extends Action4Result {
 	public String add() {
 		productImageService.save(productImage);
 		if (ProductImageService.single_type.equals(productImage.getType())) {
-			uploadAndResizeImg(productImage, "img/productSingleImage");
+			uploadImg(productImage, "img/productSingleImage");
 		} else {
 			uploadImg(productImage, "img/productDetailImage");
 		}

@@ -25,8 +25,7 @@ public class ProductAction extends Action4Result {
 	
 	@Action("admin_product_add")
 	public String add() {
-		Date createDate = new Date();
-		product.setCreateDate(createDate);
+		product.setCreateDate(new Date());
 		productService.save(product);
 		return "listProductPage";
 	}

@@ -3,6 +3,7 @@ package com.how2java.tmall.action;
 import java.util.List;
 
 import com.how2java.tmall.pojo.Category;
+import com.how2java.tmall.pojo.Order;
 import com.how2java.tmall.pojo.Product;
 import com.how2java.tmall.pojo.ProductImage;
 import com.how2java.tmall.pojo.Property;
@@ -17,6 +18,7 @@ public class Action4Pojo extends Action4Pagination {
 	protected ProductImage productImage;
 	protected PropertyValue propertyValue;
 	protected User user;
+	protected Order order;
 	
 	protected List<Category> categorys;
 	protected List<Property> propertys;
@@ -25,6 +27,7 @@ public class Action4Pojo extends Action4Pagination {
 	protected List<ProductImage> productDetailImages;
 	protected List<PropertyValue> propertyValues;
 	protected List<User> users;
+	protected List<Order> orders;
 	
 	public Category getCategory() {
 		return category;
@@ -72,6 +75,14 @@ public class Action4Pojo extends Action4Pagination {
 	
 	public void setUser(User user) {
 		this.user = user;
+	}
+	
+	public Order getOrder() {
+		return order;
+	}
+	
+	public void setOrder(Order order) {
+		this.order = order;
 	}
 	
 	public List<Category> getCategorys() {
@@ -128,6 +139,14 @@ public class Action4Pojo extends Action4Pagination {
 	
 	public void setUsers(List<User> users) {
 		this.users = users;
+	}
+	
+	public List<Order> getOrders() {
+		return orders;
+	}
+	
+	public void setOrders(List<Order> orders) {
+		this.orders = orders;
 	}
 	
 }

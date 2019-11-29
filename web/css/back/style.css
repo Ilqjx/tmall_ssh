@@ -79,6 +79,31 @@ div.workingArea div.pvDiv span.pvValue input.pvInput {
 	outline: none;
 }
 
+div.workingArea div.listDataTableDiv table#orderTable tr th {
+	text-align: center;
+}
+
+div.workingArea div.listDataTableDiv table#orderTable tr.orderPageTR td {
+	text-align: center;
+}
+
+div.workingArea div.listDataTableDiv div.orderPageOrderItem {
+	width: 100%;
+	padding: 20px;
+}
+
+div.workingArea div.listDataTableDiv table.orderPageOrderItemTable td {
+	padding: 5px;
+}
+
+div.workingArea div.listDataTableDiv tr.orderPageOrderItemTR {
+	display: none;
+}
+
+th, td {
+	font-size: 14px;
+}
+
 div.footerDiv {
 	position: absolute;
 	bottom: 0;

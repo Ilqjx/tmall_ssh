@@ -12,12 +12,17 @@ import com.how2java.tmall.service.ProductImageService;
 public class ProductImageServiceImpl extends BaseServiceImpl implements ProductImageService {
 
 	@Override
+	public void setFirstProductImage(Product product) {
+		List<ProductImage> productImages = list("product", product, "type", ProductImageService.single_type);
+		if (!productImages.isEmpty()) {
+			product.setFirstProductImage(productImages.get(0));
+		}
+	}
+	
+	@Override
 	public void setFirstProductImage(List<Product> products) {
 		for (Product product : products) {
-			List<ProductImage> productImages = list("product", product, "type", ProductImageService.single_type);
-			if (!productImages.isEmpty()) {
-				product.setFirstProductImage(productImages.get(0));
-			}
+			setFirstProductImage(product);
 		}
 	}
 

@@ -34,7 +34,11 @@ import org.apache.struts2.convention.annotation.Results;
 	@Result(name = "editPropertyValue", location = "/admin/editPropertyValue.jsp"),
 	
 	// 用户管理
-	@Result(name = "listUser", location = "/admin/listUser.jsp")
+	@Result(name = "listUser", location = "/admin/listUser.jsp"),
+	
+	// 订单管理
+	@Result(name = "listOrder", location = "/admin/listOrder.jsp"),
+	@Result(name = "listOrderPage", location = "admin_order_list", type = "redirect")
 })
 public class Action4Result extends Action4Service {
 

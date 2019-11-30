@@ -9,7 +9,7 @@ import org.apache.struts2.convention.annotation.Results;
 @ParentPackage("basicstruts")
 @Results({
 	// 全局的
-	@Result(name = "success.jsp", location = "/publicJsp/success.jsp"),
+	@Result(name = "success.jsp", location = "/public/success.jsp"),
 	
 	// 分类管理
 	@Result(name = "listCategory", location = "/admin/listCategory.jsp"),

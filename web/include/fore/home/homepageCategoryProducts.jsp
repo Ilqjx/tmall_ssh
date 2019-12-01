@@ -23,10 +23,10 @@
 				<c:forEach items="${c.products}" var="p" varStatus="vs">
 					<c:if test="${vs.count <= 5}">
 						<div class="productItem">
-							<a href="foreproduct?pid=${p.id}">
+							<a href="foreproduct?product.id=${p.id}">
 			        			<img src="img/productSingleImage_middle/${p.firstProductImage.id}.jpg">
 			    			</a>
-			    			<a href="foreproduct?pid=${p.id}" class="productItemDescLink">
+			    			<a href="foreproduct?product.id=${p.id}" class="productItemDescLink">
 			        			<span class="productItemDesc">
 			        				[热销]${fn:substring(p.name, 0, 20)}
 			        			</span>

@@ -9,6 +9,7 @@ import com.how2java.tmall.service.ProductImageService;
 import com.how2java.tmall.service.ProductService;
 import com.how2java.tmall.service.PropertyService;
 import com.how2java.tmall.service.PropertyValueService;
+import com.how2java.tmall.service.ReviewService;
 import com.how2java.tmall.service.UserService;
 
 public class Action4Service extends Action4Pojo {
@@ -29,6 +30,8 @@ public class Action4Service extends Action4Pojo {
 	protected OrderService orderService;
 	@Autowired
 	protected OrderItemService orderItemService;
+	@Autowired
+	protected ReviewService reviewService;
 	
 	/**
 	 * transient to persistent

@@ -31,6 +31,11 @@ public class Product {
 	private Date createDate;
 	@Transient
 	private ProductImage firstProductImage;
+	@Transient
+	private int saleCount;
+	@Transient
+	private int reviewCount;
+	
 	
 	public int getId() {
 		return id;
@@ -102,6 +107,22 @@ public class Product {
 	
 	public void setFirstProductImage(ProductImage firstProductImage) {
 		this.firstProductImage = firstProductImage;
+	}
+	
+	public int getSaleCount() {
+		return saleCount;
+	}
+	
+	public void setSaleCount(int saleCount) {
+		this.saleCount = saleCount;
+	}
+	
+	public int getReviewCount() {
+		return reviewCount;
+	}
+	
+	public void setReviewCount(int reviewCount) {
+		this.reviewCount = reviewCount;
 	}
 	
 }

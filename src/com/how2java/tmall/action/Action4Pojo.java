@@ -8,6 +8,7 @@ import com.how2java.tmall.pojo.Product;
 import com.how2java.tmall.pojo.ProductImage;
 import com.how2java.tmall.pojo.Property;
 import com.how2java.tmall.pojo.PropertyValue;
+import com.how2java.tmall.pojo.Review;
 import com.how2java.tmall.pojo.User;
 
 public class Action4Pojo extends Action4Pagination {
@@ -19,7 +20,7 @@ public class Action4Pojo extends Action4Pagination {
 	protected PropertyValue propertyValue;
 	protected User user;
 	protected Order order;
-	protected String msg;
+	protected Review review;
 	
 	protected List<Category> categorys;
 	protected List<Property> propertys;
@@ -29,6 +30,7 @@ public class Action4Pojo extends Action4Pagination {
 	protected List<PropertyValue> propertyValues;
 	protected List<User> users;
 	protected List<Order> orders;
+	protected List<Review> reviews;
 	
 	public Category getCategory() {
 		return category;
@@ -86,12 +88,12 @@ public class Action4Pojo extends Action4Pagination {
 		this.order = order;
 	}
 	
-	public String getMsg() {
-		return msg;
+	public Review getReview() {
+		return review;
 	}
 	
-	public void setMsg(String msg) {
-		this.msg = msg;
+	public void setReview(Review review) {
+		this.review = review;
 	}
 	
 	public List<Category> getCategorys() {
@@ -156,6 +158,14 @@ public class Action4Pojo extends Action4Pagination {
 	
 	public void setOrders(List<Order> orders) {
 		this.orders = orders;
+	}
+	
+	public List<Review> getReviews() {
+		return reviews;
+	}
+	
+	public void setReviews(List<Review> reviews) {
+		this.reviews = reviews;
 	}
 	
 }

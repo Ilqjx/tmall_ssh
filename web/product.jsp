@@ -3,5 +3,5 @@
 <%@ include file="include/fore/public/header.jsp" %>
 <%@ include file="include/fore/public/top.jsp" %>
 <%@ include file="include/fore/public/simpleSearch.jsp" %>
-<%@ include file="include/fore/page/registerPage.jsp" %>
+<%@ include file="include/fore/page/productPage.jsp" %>
 <%@ include file="include/fore/public/footer.jsp" %>

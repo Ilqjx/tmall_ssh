@@ -40,8 +40,10 @@ import org.apache.struts2.convention.annotation.Results;
 	@Result(name = "listOrder", location = "/admin/listOrder.jsp"),
 	@Result(name = "listOrderPage", location = "admin_order_list", type = "redirect"),
 	
-	// 首页
-	@Result(name = "home.jsp", location = "/fore/home.jsp")
+	// 首页服务端跳转
+	@Result(name = "home.jsp", location = "/home.jsp"),
+	@Result(name = "register.jsp", location = "/register.jsp"),
+	@Result(name = "registerSuccess.jsp", location = "/registerSuccess.jsp"),
 })
 public class Action4Result extends Action4Service {
 

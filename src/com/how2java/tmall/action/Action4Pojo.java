@@ -19,6 +19,7 @@ public class Action4Pojo extends Action4Pagination {
 	protected PropertyValue propertyValue;
 	protected User user;
 	protected Order order;
+	protected String msg;
 	
 	protected List<Category> categorys;
 	protected List<Property> propertys;
@@ -83,6 +84,14 @@ public class Action4Pojo extends Action4Pagination {
 	
 	public void setOrder(Order order) {
 		this.order = order;
+	}
+	
+	public String getMsg() {
+		return msg;
+	}
+	
+	public void setMsg(String msg) {
+		this.msg = msg;
 	}
 	
 	public List<Category> getCategorys() {

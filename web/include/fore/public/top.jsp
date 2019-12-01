@@ -18,7 +18,7 @@
 	
 </script>
 
-<link href="../css/fore/public/top.css" rel="stylesheet">
+<link href="css/fore/public/top.css" rel="stylesheet">
 
 <nav class="top">
 	<a href="${contextPath}">

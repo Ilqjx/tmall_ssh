@@ -9,5 +9,9 @@ public interface ProductService extends BaseService {
 	public void setSaleAndReviewCount(Product product);
 	
 	public void setSaleAndReviewCount(List<Product> products);
-
+	
+	public void sortProduct(List<Product> products ,String sort);
+	
+	public List search(String keyword, int start, int count);
+	
 }

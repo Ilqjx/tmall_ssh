@@ -10,13 +10,13 @@
     </a>
     <form action="foresearch" method="post">
         <div class="simpleSearchDiv pull-right">
-            <input type="text" placeholder="平衡车 原汁机" name="keyword">
+            <input type="text" placeholder="平衡车 原汁机" name="keyword" value="${param.keyword}" />
             <button class="searchButton" type="submit">搜天猫</button>
             <div class="simpleSearchBelow">
             	<c:forEach items="${cs}" var="c" varStatus="st">
             		<c:if test="${st.count >= 8 and st.count <= 11}">
             			<span>
-                    		<a href="forecategory?cid=${c.id}">${c.name}</a>
+                    		<a href="forecategory?category.id=${c.id}">${c.name}</a>
                     		<c:if test="${st.count != 11}">
                     			<span>|</span>
                     		</c:if>

@@ -10,6 +10,7 @@ import org.apache.struts2.convention.annotation.Results;
 @Results({
 	// 全局的
 	@Result(name = "success.jsp", location = "/public/success.jsp"),
+	@Result(name = "fail.jsp", location = "/public/fail.jsp"),
 	
 	// 分类管理
 	@Result(name = "listCategory", location = "/admin/listCategory.jsp"),
@@ -46,6 +47,8 @@ import org.apache.struts2.convention.annotation.Results;
 	@Result(name = "registerSuccess.jsp", location = "/registerSuccess.jsp"),
 	@Result(name = "login.jsp", location = "/login.jsp"),
 	@Result(name = "product.jsp", location = "/product.jsp"),
+	@Result(name = "category.jsp", location = "/category.jsp"),
+	@Result(name = "searchResult.jsp", location = "/searchResult.jsp"),
 	
 	// 首页客户端跳转
 	@Result(name = "homePage", location = "forehome", type = "redirect"),

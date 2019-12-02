@@ -65,4 +65,43 @@ public class ForeAction extends Action4Result {
 		return "product.jsp";
 	}
 	
+	@Action("forecheckLogin")
+	public String checkLogin() {
+		User user = (User) ActionContext.getContext().getSession().get("user");
+		if (user != null) {
+			return "success.jsp";
+		}
+		return "fail.jsp";
+	}
+	
+	@Action("foreloginAjax")
+	public String loginAjax() {
+		user.setName(HtmlUtils.htmlEscape(user.getName()));
+		User user_session = userService.getUser(user);
+		if (user_session == null) {
+			return "fail.jsp";
+		}
+		ActionContext.getContext().getSession().put("user", user_session);
+		return "success.jsp";
+	}
+	
+	@Action("forecategory")
+	public String category() {
+		t2p(category);
+		categoryService.fillCategory(category);
+		productService.setSaleAndReviewCount(category.getProducts());
+		if (sort != null) {
+			productService.sortProduct(category.getProducts(), sort);
+		}
+		return "category.jsp";
+	}
+	
+	@Action("foresearch")
+	public String search() {
+		products = productService.search(keyword, 0, 20);
+		productService.setSaleAndReviewCount(products);
+		productImageService.setFirstProductImage(products);
+		return "searchResult.jsp";
+	}
+	
 }

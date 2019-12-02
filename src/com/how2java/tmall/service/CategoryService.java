@@ -11,5 +11,5 @@ public interface CategoryService extends BaseService {
 	public void fillCategory(List<Category> categorys);
 	
 	public void fillCategoryByRow(List<Category> categorys);
-
+	
 }

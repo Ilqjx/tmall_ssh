@@ -21,13 +21,13 @@
 			var url = "foreloginAjax";
 			$.post(
 				url,
-				{"name" : name, "password" : password},
+				{"user.name" : name, "user.password" : password},
 				function (res) {
 					if (res == "success") {
 						// 刷新当前页面
 						location.reload();
 					} else {
-						$("span.errorMessage").html(res);
+						$("span.errorMessage").html("账号密码错误");
 						$("div.loginErrorMessageDiv").show();
 					}
 				}

@@ -100,7 +100,7 @@
 						var url = "foreaddCart";
 						$.get(
 							url,
-							{"pid" : pid, "num" : num},
+							{"product.id" : pid, "num" : num},
 							function (res) {
 								if (res == "success") {
 									$("button.addCartButton").html("已加入购物车");
@@ -233,7 +233,7 @@
                 </span>
             </div>
             <div class="buyDiv">
-                <a class="buyLink" href="forebuyone?pid=${product.id}">
+                <a class="buyLink" href="forebuyone?product.id=${product.id}">
                 	<button class="buyButton">立即购买</button>
                 </a>
                 <a class="addCartLink" href="#nowhere">

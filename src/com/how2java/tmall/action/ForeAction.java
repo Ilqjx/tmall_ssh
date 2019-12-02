@@ -1,8 +1,12 @@
 package com.how2java.tmall.action;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.apache.struts2.convention.annotation.Action;
 import org.springframework.web.util.HtmlUtils;
 
+import com.how2java.tmall.pojo.OrderItem;
 import com.how2java.tmall.pojo.User;
 import com.how2java.tmall.service.ProductImageService;
 import com.opensymphony.xwork2.ActionContext;
@@ -102,6 +106,87 @@ public class ForeAction extends Action4Result {
 		productService.setSaleAndReviewCount(products);
 		productImageService.setFirstProductImage(products);
 		return "searchResult.jsp";
+	}
+	
+	@Action("forebuyone")
+	public String buyone() {
+		User user = (User) ActionContext.getContext().getSession().get("user");
+		OrderItem orderItem;
+		List<OrderItem> list = orderItemService.list("user", user, "product", product, "order", null);
+		if (list.isEmpty()) {
+			orderItem = new OrderItem();
+			orderItem.setProduct(product);
+			orderItem.setUser(user);
+			orderItem.setNumber(num);
+			orderItemService.save(orderItem);
+		} else {
+			orderItem = list.get(0);
+			orderItem.setNumber(orderItem.getNumber() + num);
+			orderItemService.update(orderItem);
+		}
+		oiid = orderItem.getId();
+		return "buyPage";
+	}
+	
+	@Action("forebuy")
+	public String buy() {
+		orderItems = new ArrayList<>();
+		total = 0;
+		for (int oiid : oiids) {
+			OrderItem orderItem = (OrderItem) orderItemService.get(oiid);
+			productImageService.setFirstProductImage(orderItem.getProduct());
+			orderItems.add(orderItem);
+			total += orderItem.getProduct().getPromotePrice() * orderItem.getNumber();
+		}
+		return "buy.jsp";
+	}
+	
+	@Action("foreaddCart")
+	public String addCart() {
+		User user = (User) ActionContext.getContext().getSession().get("user");
+		OrderItem orderItem;
+		List<OrderItem> list = orderItemService.list("user", user, "product", product, "order", null);
+		if (list.isEmpty()) {
+			orderItem = new OrderItem();
+			orderItem.setProduct(product);
+			orderItem.setUser(user);
+			orderItem.setNumber(num);
+			orderItemService.save(orderItem);
+		} else {
+			orderItem = list.get(0);
+			orderItem.setNumber(orderItem.getNumber() + num);
+			orderItemService.update(orderItem);
+		}
+		return "success.jsp";
+	}
+	
+	@Action("forecart")
+	public String cart() {
+		User user = (User) ActionContext.getContext().getSession().get("user");
+		orderItems = orderItemService.list("user", user, "order", null);
+		for (OrderItem orderItem : orderItems) {
+			productImageService.setFirstProductImage(orderItem.getProduct());
+		}
+		return "cart.jsp";
+	}
+	
+	@Action("forechangeOrderItem")
+	public String changeOrderItem() {
+		User user = (User) ActionContext.getContext().getSession().get("user");
+		List<OrderItem> list = orderItemService.list("user", user, "product", product, "order", null);
+		if (!list.isEmpty()) {
+			OrderItem orderItem = list.get(0);
+			orderItem.setNumber(num);
+			orderItemService.update(orderItem);
+			return "success.jsp";
+		}
+		return "fail.jsp";
+	}
+	
+	@Action("foredeleteOrderItem")
+	public String deleteOrderItem() {
+		orderItemService.delete(orderItem);
+		return "success.jsp";
 	}
 	
 }

@@ -49,9 +49,12 @@ import org.apache.struts2.convention.annotation.Results;
 	@Result(name = "product.jsp", location = "/product.jsp"),
 	@Result(name = "category.jsp", location = "/category.jsp"),
 	@Result(name = "searchResult.jsp", location = "/searchResult.jsp"),
+	@Result(name = "buy.jsp", location = "/buy.jsp"),
+	@Result(name = "cart.jsp", location = "/cart.jsp"),
 	
 	// 首页客户端跳转
 	@Result(name = "homePage", location = "forehome", type = "redirect"),
+	@Result(name = "buyPage", location = "forebuy?oiids=${oiid}", type = "redirect"),
 	
 })
 public class Action4Result extends Action4Parameter {

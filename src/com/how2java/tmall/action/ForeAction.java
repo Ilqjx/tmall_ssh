@@ -1,6 +1,7 @@
 package com.how2java.tmall.action;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import org.apache.struts2.convention.annotation.Action;
@@ -8,6 +9,7 @@ import org.springframework.web.util.HtmlUtils;
 
 import com.how2java.tmall.pojo.OrderItem;
 import com.how2java.tmall.pojo.User;
+import com.how2java.tmall.service.OrderService;
 import com.how2java.tmall.service.ProductImageService;
 import com.opensymphony.xwork2.ActionContext;
 
@@ -138,6 +140,8 @@ public class ForeAction extends Action4Result {
 			orderItems.add(orderItem);
 			total += orderItem.getProduct().getPromotePrice() * orderItem.getNumber();
 		}
+		// 在方法 createOrder 创建订单时需要这些订单项
+		ActionContext.getContext().getSession().put("orderItems", orderItems);
 		return "buy.jsp";
 	}
 	
@@ -187,6 +191,32 @@ public class ForeAction extends Action4Result {
 	public String deleteOrderItem() {
 		orderItemService.delete(orderItem);
 		return "success.jsp";
+	}
+	
+	@Action("forecreateOrder")
+	public String createOrder() {
+		orderItems = (List<OrderItem>) ActionContext.getContext().getSession().get("orderItems");
+		if (orderItems.isEmpty()) {
+			return "login.jsp";
+		}
+		orderService.createOrder(order, orderItems);
+		return "alipayPage";
+	}
+	
+	// 为了不暴露 jsp 转换路径
+	@Action("forealipay")
+	public String alipay() {
+		return "alipay.jsp";
+	}
+	
+	@Action("forepayed")
+	public String payed() {
+		t2p(order);
+		order.setTotal(total);
+		order.setPayDate(new Date());
+		order.setStatus(OrderService.waitDelivery);
+		orderService.update(order);
+		return "payed.jsp";
 	}
 	
 }

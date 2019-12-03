@@ -8,6 +8,26 @@
 	<constant name="struts.i18n.encoding" value="utf-8" />
 	<constant name="struts.objectFactory" value="spring" />
 	
-	<package name="basicstruts" extends="struts-default" />
+	<package name="basicstruts" extends="struts-default">
+	    <interceptors>
+	        <interceptor name="authorityInterceptor" class="com.how2java.tmall.interceptor.AuthInterceptor"></interceptor>
+	        <interceptor name="categoryNamesBelowSearchInterceptor" class="com.how2java.tmall.interceptor.CategoryNamesBelowSearchInterceptor"></interceptor>
+	        <interceptor name="cartTotalItemNumberInterceptor" class="com.how2java.tmall.interceptor.CartTotalItemNumberInterceptor"></interceptor>
+	        
+	        <!-- 拦截器栈 -->
+	        <!-- Struts2拦截器栈就是将拦截器按一定的顺序连接成一条链。 -->
+	        <!-- 在访问被拦截的方法或字段时，Struts2拦截器链中的拦截器就会按其之前定义的顺序被调用。 -->
+	        <interceptor-stack name="auth-default">
+	            <interceptor-ref name="authorityInterceptor" />
+	            <interceptor-ref name="categoryNamesBelowSearchInterceptor" />
+	            <interceptor-ref name="cartTotalItemNumberInterceptor" />
+	            <interceptor-ref name="defaultStack" />
+	        </interceptor-stack>
+	    </interceptors>
+	    
+	    <!-- 此默认 interceptor 是针对所有 action 的 -->
+	    <!-- 如果某个 action 中引入了 interceptor, 则在这个 action　中默认的 interceptor 就会失效 -->
+	    <default-interceptor-ref name="auth-default"></default-interceptor-ref>
+	</package>
 
 </struts>

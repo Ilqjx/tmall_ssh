@@ -13,7 +13,7 @@
 		<input type="text" name="keyword" placeholder="华为Mate30 苹果A11" value="${param.keyword}" />
 		<button type="submit" class="searchButton">搜索</button>
 		<div class="searchBelow">
-			<c:forEach items="${categorys}" var="c" varStatus="st">
+			<c:forEach items="${cs}" var="c" varStatus="st">
 				<c:if test="${st.count>=5 and st.count<=8}">
 					<span>
 						<a href="forecategory?category.id=${c.id}">${c.name}</a>

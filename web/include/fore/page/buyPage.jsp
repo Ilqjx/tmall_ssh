@@ -63,20 +63,20 @@
 	                    <tr>
 	                        <td class="firstColumn">详细地址<span class="redStar">*</span></td>
 	                        <td>
-	                            <textarea id="address" name="address" placeholder="建议您如实填写详细收货地址，例如街道名称，门牌号码，楼层和房间号等信息"></textarea>
+	                            <textarea id="address" name="order.address" placeholder="建议您如实填写详细收货地址，例如街道名称，门牌号码，楼层和房间号等信息"></textarea>
 	                        </td>
 	                    </tr>
 	                    <tr>
 	                        <td>邮政编码</td>
-	                        <td><input type="text" name="post" placeholder="如果您不清楚邮递区号，请填写000000" /></td>
+	                        <td><input type="text" name="order.post" placeholder="如果您不清楚邮递区号，请填写000000" /></td>
 	                    </tr>
 	                    <tr>
 	                        <td>收货人姓名<span class="redStar">*</span></td>
-	                        <td><input id="receiver" type="text" name="receiver" placeholder="长度不超过25个字符" /></td>
+	                        <td><input id="receiver" type="text" name="order.receiver" placeholder="长度不超过25个字符" /></td>
 	                    </tr>
 	                    <tr>
 	                        <td>手机号码<span class="redStar">*</span></td>
-	                        <td><input id="mobile" type="text" name="mobile" placeholder="请输入11位手机号码" /></td>
+	                        <td><input id="mobile" type="text" name="order.mobile" placeholder="请输入手机号码" /></td>
 	                    </tr>
 	                </tbody>
 	            </table>
@@ -154,7 +154,7 @@
 	                    <img class="leaveMessageImg" src="img/site/leaveMessage.png">
 	                </span>
 	                <span class="leaveMessageTextareaSpan" style="display: none;">
-	                    <textarea class="leaveMessageTextarea" name="userMessage"></textarea>
+	                    <textarea class="leaveMessageTextarea" name="order.userMessage"></textarea>
 	                    <div>
 	                        <span>还可以输入200个字符</span>
 	                    </div>

@@ -3,6 +3,7 @@ package com.how2java.tmall.service;
 import java.util.List;
 
 import com.how2java.tmall.pojo.Order;
+import com.how2java.tmall.pojo.OrderItem;
 
 public interface OrderService extends BaseService {
 	
@@ -14,5 +15,7 @@ public interface OrderService extends BaseService {
 	public static final String delete = "delete";
 	
 	public void fillOrders(List<Order> orders);
+	
+	public void createOrder(Order order, List<OrderItem> orderItems);
 	
 }

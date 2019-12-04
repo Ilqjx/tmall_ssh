@@ -12,6 +12,9 @@ import org.apache.struts2.convention.annotation.Results;
 	@Result(name = "success.jsp", location = "/public/success.jsp"),
 	@Result(name = "fail.jsp", location = "/public/fail.jsp"),
 	
+	// 后端登陆
+	@Result(name = "backLogin.jsp", location = "/backLogin.jsp"),
+	
 	// 分类管理
 	@Result(name = "listCategory", location = "/admin/listCategory.jsp"),
 	@Result(name = "editCategory", location = "/admin/editCategory.jsp"),
@@ -53,11 +56,16 @@ import org.apache.struts2.convention.annotation.Results;
 	@Result(name = "cart.jsp", location = "/cart.jsp"),
 	@Result(name = "alipay.jsp", location = "/alipay.jsp"),
 	@Result(name = "payed.jsp", location = "/payed.jsp"),
+	@Result(name = "bought.jsp", location = "/bought.jsp"),
+	@Result(name = "confirmPay.jsp", location = "/confirmPay.jsp"),
+	@Result(name = "orderConfirmed.jsp", location = "/orderConfirmed.jsp"),
+	@Result(name = "review.jsp", location = "/review.jsp"),
 	
 	// 首页客户端跳转
 	@Result(name = "homePage", location = "forehome", type = "redirect"),
 	@Result(name = "buyPage", location = "forebuy?oiids=${oiid}", type = "redirect"),
 	@Result(name = "alipayPage", location = "forealipay?order.id=${order.id}&order.total=${order.total}", type = "redirect"),
+	@Result(name = "reviewPage", location = "forereview?order.id=${order.id}", type = "redirect")
 	
 })
 public class Action4Result extends Action4Parameter {

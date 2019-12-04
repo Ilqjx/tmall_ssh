@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.how2java.tmall.pojo.Order;
 import com.how2java.tmall.pojo.OrderItem;
+import com.how2java.tmall.pojo.User;
 
 public interface OrderService extends BaseService {
 	
@@ -14,8 +15,12 @@ public interface OrderService extends BaseService {
 	public static final String finish = "finish";
 	public static final String delete = "delete";
 	
+	public void fillOrder(Order order);
+	
 	public void fillOrders(List<Order> orders);
 	
 	public void createOrder(Order order, List<OrderItem> orderItems);
+
+	public List<Order> listOrderWithoutDeleteStatus(User user);
 	
 }

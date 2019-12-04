@@ -5,6 +5,8 @@
 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
+<title>编辑产品属性值</title>
+
 <script>
 	
 	$(function () {
@@ -34,8 +36,6 @@
 	})
 	
 </script>
-
-<title>编辑产品属性值</title>
 
 <div class="workingArea">
 	<ol class="breadcrumb">

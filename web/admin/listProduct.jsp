@@ -5,7 +5,10 @@
 <%@ include file="../include/admin/adminHeader.jsp" %>
 <%@ include file="../include/admin/adminNavigator.jsp" %>
 
+<title>产品管理</title>
+
 <script>
+
 	$(function () {
 		$("form#addForm").submit(function () {
 			if (!checkEmpty("name", "产品名称")) {
@@ -26,9 +29,8 @@
 			return true;
 		})
 	})
+	
 </script>
-
-<title>产品管理</title>
 
 <div class="workingArea">
 	<ol class="breadcrumb">

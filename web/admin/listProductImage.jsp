@@ -5,7 +5,10 @@
 <%@ include file="../include/admin/adminHeader.jsp" %>
 <%@ include file="../include/admin/adminNavigator.jsp" %>
 
+<title>产品图片管理</title>
+
 <script>
+
 	$(function () {
 		$("form#addFormSingle").submit(function () {
 			if (!checkEmpty("filepathSingle", "图片文件")) {
@@ -20,9 +23,8 @@
 			return true;
 		})
 	})
+	
 </script>
-
-<title>产品图片管理</title>
 
 <div class="workingArea">
 	<ol class="breadcrumb">

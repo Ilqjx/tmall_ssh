@@ -5,6 +5,8 @@
 <%@ include file="../include/admin/adminHeader.jsp" %>
 <%@ include file="../include/admin/adminNavigator.jsp" %>
 
+<title>分类管理</title>
+
 <script>
 
 	$(function () {
@@ -20,8 +22,6 @@
 	})
 
 </script>
-
-<title>分类管理</title>
 
 <div class="workingArea">
 	<h1 class="label label-info">分类管理</h1>

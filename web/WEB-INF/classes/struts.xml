@@ -13,11 +13,13 @@
 	        <interceptor name="authorityInterceptor" class="com.how2java.tmall.interceptor.AuthInterceptor"></interceptor>
 	        <interceptor name="categoryNamesBelowSearchInterceptor" class="com.how2java.tmall.interceptor.CategoryNamesBelowSearchInterceptor"></interceptor>
 	        <interceptor name="cartTotalItemNumberInterceptor" class="com.how2java.tmall.interceptor.CartTotalItemNumberInterceptor"></interceptor>
+	        <interceptor name="backInterceptor" class="com.how2java.tmall.interceptor.BackInterceptor"></interceptor>
 	        
 	        <!-- 拦截器栈 -->
 	        <!-- Struts2拦截器栈就是将拦截器按一定的顺序连接成一条链。 -->
 	        <!-- 在访问被拦截的方法或字段时，Struts2拦截器链中的拦截器就会按其之前定义的顺序被调用。 -->
 	        <interceptor-stack name="auth-default">
+	        	<interceptor-ref name="backInterceptor" />
 	            <interceptor-ref name="authorityInterceptor" />
 	            <interceptor-ref name="categoryNamesBelowSearchInterceptor" />
 	            <interceptor-ref name="cartTotalItemNumberInterceptor" />

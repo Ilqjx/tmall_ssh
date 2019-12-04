@@ -80,7 +80,7 @@
 												<img width="40px" height="40px" src="img/productSingleImage/${orderItem.product.firstProductImage.id}.jpg" />
 											</td>
 											<td>
-												<a href="foreproduct?pid=${orderItem.product.id}">
+												<a href="foreproduct?product.id=${orderItem.product.id}">
 													<span>${orderItem.product.name}</span>
 												</a>
 											</td>

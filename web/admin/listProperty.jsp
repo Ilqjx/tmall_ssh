@@ -5,6 +5,8 @@
 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
+<title>属性管理</title>
+
 <script>
 
 	$(function () {
@@ -17,8 +19,6 @@
 	})
 
 </script>
-
-<title>属性管理</title>
 
 <div class="workingArea">
 	<ol class="breadcrumb">

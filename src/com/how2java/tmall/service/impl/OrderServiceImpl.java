@@ -4,6 +4,8 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
+import org.hibernate.criterion.DetachedCriteria;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
@@ -26,12 +28,6 @@ public class OrderServiceImpl extends BaseServiceImpl implements OrderService {
 	private ProductImageService productImageService;
 	
 	@Override
-	public void fillOrders(List<Order> orders) {
-		for (Order order : orders) {
-			fillOrder(order);
-		}
-	}
-	
 	public void fillOrder(Order order) {
 		float total = 0;
 		int totalNumber = 0;
@@ -47,7 +43,14 @@ public class OrderServiceImpl extends BaseServiceImpl implements OrderService {
 		order.setTotalNumber(totalNumber);
 		order.setOrderItems(orderItems);
 	}
-
+	
+	@Override
+	public void fillOrders(List<Order> orders) {
+		for (Order order : orders) {
+			fillOrder(order);
+		}
+	}
+	
 	// Propagation.REQUIRED 支持当前事务,如果没有就新建一个
 	// rollbackForClassName 有异常就回滚
 	@Transactional(propagation = Propagation.REQUIRED, rollbackForClassName = "Exception")
@@ -73,6 +76,15 @@ public class OrderServiceImpl extends BaseServiceImpl implements OrderService {
 			total += orderItem.getNumber() * orderItem.getProduct().getPromotePrice();
 		}
 		order.setTotal(total);
+	}
+
+	@Override
+	public List<Order> listOrderWithoutDeleteStatus(User user) {
+		DetachedCriteria dc = DetachedCriteria.forClass(clazz);
+		dc.add(Restrictions.eq("user", user));
+		dc.add(Restrictions.ne("status", OrderService.delete));
+		dc.addOrder(org.hibernate.criterion.Order.desc("id"));
+		return findByCriteria(dc);
 	}
 
 }

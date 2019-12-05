@@ -53,7 +53,7 @@
 									<tr class="submitTR">
 										<td>
 											<input type="hidden" name="productImage.product.id" value="${product.id}" />
-											<input type="hidden" name="productImage.type" value="single" />
+											<input type="hidden" name="productImage.type" value="type_single" />
 											<button type="submit" class="btn btn-success">提 交</button>
 										</td>
 									</tr>
@@ -107,7 +107,7 @@
 									<tr class="submitTR">
 										<td>
 											<input type="hidden" name="productImage.product.id" value="${product.id}">
-											<input type="hidden" name="productImage.type" value="detail" />
+											<input type="hidden" name="productImage.type" value="type_detail" />
 											<button type="submit" class="btn btn-success">提 交</button>
 										</td>
 									</tr>
